@@ -1,13 +1,20 @@
-FROM php:8.2-apache
+FROM php:8.2-cli
 
-# PDO va PostgreSQL kutubxonalarini o‘rnatamiz
-RUN docker-php-ext-install pdo pdo_pgsql
+# Kerakli kutubxonalarni o‘rnatamiz
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    unzip \
+    git \
+    && docker-php-ext-install pdo pdo_pgsql
 
 # Composer o‘rnatamiz
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Loyihani konteyner ichiga nusxalaymiz
-COPY . /var/www/html/
+# Loyihani konteyner ichiga ko‘chiramiz
+WORKDIR /var/www/html
+COPY . .
 
-# Apache avtomatik 80-portda ishlaydi
-EXPOSE 80
+# Composer orqali paketlarni o‘rnatamiz
+RUN composer install --no-dev --optimize-autoloader
+
+CMD [ "php", "bot.php" ]
