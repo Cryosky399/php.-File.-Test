@@ -1,8 +1,8 @@
 <?php
 
 $servername = "localhost";
-$username = "baza_nomi";
-$password = "baza_paroli";
+$username = "postgres";
+$password = "PostgreSQL14";
 $connect = mysqli_connect($servername, $username, $password, $username);
 
 mysqli_query($connect,"CREATE TABLE IF NOT EXISTS `user_id` (
@@ -14,12 +14,12 @@ mysqli_query($connect,"CREATE TABLE IF NOT EXISTS `user_id` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;");
 mysqli_query($connect,"CREATE TABLE IF NOT EXISTS `status` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL INCRENT CREMENT,
   `user_id` varchar(250) NOT NULL,
   `kun` varchar(250) NOT NULL,
   `date` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;");
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLdbATE=utf8mb4_general_ci;");
 mysqli_query($connect,"CREATE TABLE IF NOT EXISTS `send` (
   `send_id` int(11) NOT NULL,
   `time1` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -65,4 +65,5 @@ mysqli_query($connect,"CREATE TABLE IF NOT EXISTS `animelar` (
   `sana` text NOT NULL,
   `aniType` text NOT NULL,
   PRIMARY KEY (`id`)
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;");
