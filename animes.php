@@ -49,7 +49,7 @@
       include 'sql.php';
 
       // Bot tokenni bu yerda o'zgartiring
-      $bot_token = '7339268021:AAEsW5DaEe-eyBQOZHyQyiKShwl1shvAC6A';
+      $bot_token = '8413324975:AAFxoULYtRp6k90xB-Ti7mLUoaBUIY7LZqU';
 
       function getFilePath($file_id, $bot_token) {
         $api_url = "https://api.telegram.org/bot$bot_token/getFile?file_id=$file_id";
